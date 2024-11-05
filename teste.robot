@@ -5,3 +5,5 @@ Resource   resource.robot
 *** Test Cases ***
 Caso exemplo
   Acessar site
+  Verificar header
+  Fechar pagina
