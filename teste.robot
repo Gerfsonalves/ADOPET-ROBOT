@@ -3,7 +3,12 @@ Documentation  Teste exemplo
 Resource   resource.robot
 
 *** Test Cases ***
-Caso exemplo
+Home page
   Acessar site
-  Verificar header
+  Verificar home
+  Fechar pagina
+
+Cadastro
+  Acessar site
+  Cadastro
   Fechar pagina
