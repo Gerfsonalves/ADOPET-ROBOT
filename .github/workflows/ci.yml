@@ -1,38 +1,30 @@
-name: CI
+name: Robot Framework Tests
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    services:
-      chrome:
-        image: sselenium/standalone-chrome:latest
-        ports:
-          - 4444:4444
-        options: >-
-          --shm-size 2g
-
+  robot-test:
+    runs-on: ubuntu-22.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install robotframework
+          pip install robotframework-seleniumlibrary
+          pip install selenium
 
-    - name: Run Robot Framework tests
-      run: |
-        robot tests/
+      # Run Robot Framework tests with Edge
+      - name: Run Robot Framework Tests
+        run: |
+          xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' robot --variable BROWSER:chrome tests/test.robot
