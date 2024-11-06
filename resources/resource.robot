@@ -67,3 +67,5 @@ Login inválido
   Element Should Be Visible      xpath://p[@class='error' and text()='Por favor, verifique o email digitado']
   Element Should Be Visible      xpath://p[@class='error' and text()='A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres']
 
+Botão de adoção
+  Execute JavaScript             document.querySelector("a[href='/home']").click();
