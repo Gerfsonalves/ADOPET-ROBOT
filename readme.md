@@ -5,7 +5,7 @@ Projeto de Testes Automatizados - Adopet
 
 <h3><b>Casos de Teste</h3></b>
 </div align="center">
-<b>1.Acessar Site e Verificar Elementos da Home</b><br>
+<b>1. Acessar Site e Verificar Elementos da Home</b><br>
 Este teste abre o navegador e acessa a URL especificada, verificando a visibilidade dos elementos principais da página inicial, incluindo a barra de navegação e a seção de boas-vindas.<br><br>
 
 <b>2. Cadastro</b><br>
