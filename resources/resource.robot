@@ -40,3 +40,18 @@ Login
   Input Text                     id:email  ${EMAIL}
   Input Text                     id:pass  ${PASSWORD}
   Click Element                  xpath=//button[@type='submit' and text()='Entrar']
+
+Cadastro Inválido
+  Execute JavaScript             document.querySelector("a[href='/cadastro']").click();
+  Input Text                     id:name  text=Joãozinho Silvaaaaaaaaaaaaaaaaaaaaaaaaa
+  Input Text                     id:email  text=gebrialves.gmail.com
+  Input Text                     id:pass-create  text=1234
+  Input Text                     id:pass-confirm  text=4567
+  Scroll Element Into View       xpath=//button[@type='submit' and text()='Cadastrar']
+  Click Element                  xpath=//button[@type='submit' and text()='Cadastrar']
+
+  Element Should Be Visible      xpath://p[@class='error' and text()='O número máximo de caracteres é 25']
+  Element Should Be Visible      xpath://p[@class='error' and text()='Por favor, verifique o email digitado']
+  Element Should Be Visible      xpath://p[@class='error' and text()='A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres']
+  Element Should Be Visible      xpath://p[@class='error' and text()='As senhas não batem']
+
