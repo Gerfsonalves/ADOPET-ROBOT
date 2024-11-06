@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Cadastro de usuário
+Documentation  Cadastro de usuário 
 Resource   ../resources/resource.robot
 
 *** Test Cases ***
