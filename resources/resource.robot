@@ -2,14 +2,18 @@
 Library  SeleniumLibrary
 
 *** Variables ***
-${BROWSER}         chrome
-${URL}             https://adopet-tau.vercel.app/
-${EMAIL}           gebrialves@gmail.com
-${CPF}             11122233344
-${NOME}            Gebri Alves
-${DATANASCIMENTO}  10101990
-${PASSWORD}        1234Teste
-${CEP}             06852590
+${BROWSER}          chrome
+${URL}              https://adopet-tau.vercel.app/
+${EMAIL}            gebrialves@gmail.com
+${CPF}              11122233344
+${NOME}             Gebri Alves
+${DATANASCIMENTO}   10101990
+${PASSWORD}         1234Teste
+${CEP}              06852590
+
+${EMAILINVALID}     gebrialves.gmail.com
+${PASSWORDINVALID}  1234
+
 
 *** Keywords ***
 Acessar site
@@ -44,8 +48,8 @@ Login
 Cadastro Inválido
   Execute JavaScript             document.querySelector("a[href='/cadastro']").click();
   Input Text                     id:name  text=Joãozinho Silvaaaaaaaaaaaaaaaaaaaaaaaaa
-  Input Text                     id:email  text=gebrialves.gmail.com
-  Input Text                     id:pass-create  text=1234
+  Input Text                     id:email  ${EMAILINVALID}
+  Input Text                     id:pass-create  ${PASSWORDINVALID}
   Input Text                     id:pass-confirm  text=4567
   Scroll Element Into View       xpath=//button[@type='submit' and text()='Cadastrar']
   Click Element                  xpath=//button[@type='submit' and text()='Cadastrar']
@@ -54,4 +58,12 @@ Cadastro Inválido
   Element Should Be Visible      xpath://p[@class='error' and text()='Por favor, verifique o email digitado']
   Element Should Be Visible      xpath://p[@class='error' and text()='A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres']
   Element Should Be Visible      xpath://p[@class='error' and text()='As senhas não batem']
+
+Login inválido
+  Execute JavaScript             document.querySelector("a[href='/login']").click();
+  Input Text                     id:email  ${EMAILINVALID}
+  Input Text                     id:pass  ${PASSWORDINVALID}
+  Click Element                  xpath=//button[@type='submit' and text()='Entrar']
+  Element Should Be Visible      xpath://p[@class='error' and text()='Por favor, verifique o email digitado']
+  Element Should Be Visible      xpath://p[@class='error' and text()='A senha deve conter pelo menos uma letra maiúscula, um número e ter entre 6 e 15 caracteres']
 
