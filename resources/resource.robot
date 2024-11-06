@@ -69,3 +69,8 @@ Login inválido
 
 Botão de adoção
   Execute JavaScript             document.querySelector("a[href='/home']").click();
+
+Falar com responsável
+  Execute JavaScript               document.querySelector("a[href='/home']").click();
+  Wait Until Element Is Visible    xpath:(//a[@class='card__contact'])[2]
+  Click Element                    xpath:(//a[@class='card__contact'])[2]
