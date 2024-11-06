@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Teste exemplo
+Documentation  Verificação na Home page
 Resource   ../resources/resource.robot
 
 *** Test Cases ***
