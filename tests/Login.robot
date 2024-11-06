@@ -1,9 +1,9 @@
 *** Settings ***
-Documentation  Cadastro de usuário
+Documentation  Login de usuário
 Resource   ../resources/resource.robot
 
 *** Test Cases ***
-Cadastro
+Login
   Acessar site
-  Cadastro
+  Login
   Fechar pagina

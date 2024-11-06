@@ -26,11 +26,17 @@ Fechar pagina
   Close Browser
 
 Cadastro
-  Execute JavaScript    document.querySelector("a[href='/cadastro']").click();
+  Execute JavaScript             document.querySelector("a[href='/cadastro']").click();
 
   Input Text                     id:name  ${NOME}
   Input Text                     id:email  ${EMAIL}
   Input Text                     id:pass-create  ${PASSWORD}
   Input Text                     id:pass-confirm  ${PASSWORD}
-  Scroll Element Into View    xpath=//button[@type='submit' and text()='Cadastrar']
-  Click Element               xpath=//button[@type='submit' and text()='Cadastrar']
+  Scroll Element Into View       xpath=//button[@type='submit' and text()='Cadastrar']
+  Click Element                  xpath=//button[@type='submit' and text()='Cadastrar']
+
+Login
+  Execute JavaScript             document.querySelector("a[href='/login']").click();
+  Input Text                     id:email  ${EMAIL}
+  Input Text                     id:pass  ${PASSWORD}
+  Click Element                  xpath=//button[@type='submit' and text()='Entrar']
